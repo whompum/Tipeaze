@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base application theme. -->
+    <style name="DefaultTheme" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/lightNavyBlue</item>
+        <item name="colorSecondary">@color/darkNavyBlue</item>
+        <item name="colorMain">@color/milkyWhite</item>
+        <item name="colorTertiary">@color/gold</item>
+        <item name="colorBackground">@color/milkyWhite</item>
+
+        <item name="tipViewCardHighlight">?attr/colorPrimary</item>
+        <item name="addFabBackground">?attr/colorMain</item>
+        <item name="personalTabsCurrentTextHighlight">?attr/colorTertiary</item>
+        <item name="personalTabsSecondaryTextHighlight">?attr/colorMain</item>
+        <item name="addFabiconHighlight">?attr/colorPrimary</item>
+        <item name="presetDropdownHighlight">?attr/colorMain</item>
+
+        <item name="billContentHighlight">?attr/colorPrimary</item>
+        <item name="billTotalHighlight">?attr/colorTertiary</item>
+
+    </style>
+
+    <!--Color main will probably always be white, so i'll only set that in DefaultTheme -->
+
+    <style name="Crimson" parent="DefaultTheme">
+        <item name="colorPrimary">@color/normalCrimson</item>
+        <item name="colorSecondary">@color/softPink</item>
+        <item name="colorTertiary">@color/lighterDark</item>
+        <item name="colorBackground">@color/lighterDark</item>
+
+
+        <item name="tipViewCardHighlight">?attr/colorPrimary</item>
+        <item name="addFabBackground">?attr/colorMain</item>
+        <item name="personalTabsCurrentTextHighlight">?attr/colorTertiary</item>
+        <item name="personalTabsSecondaryTextHighlight">?attr/colorMain</item>
+        <item name="addFabiconHighlight">?attr/colorPrimary</item>
+        <item name="presetDropdownHighlight">?attr/colorMain</item>
+
+        <item name="billContentHighlight">?attr/colorMain</item>
+        <item name="billTotalHighlight">?attr/colorPrimary</item>
+
+    </style>
+
+</resources>

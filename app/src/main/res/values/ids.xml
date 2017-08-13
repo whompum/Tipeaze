@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- BELOW ARE FOR THE MAIN CARD ids -->
+    <item name="topPortionLayout" type="id"/>
+
+    <item name="tipViewCard" type="id"/>
+    <item name="tipView" type="id"/>
+
+    <item name="addFabPosView" type="id"/>
+    <item name="addFab" type="id"/>
+
+    <item name="toolbar" type="id"/>
+
+    <item name="extras" type="id"/>
+    <item name="savePreset" type="id"/>
+    <item name="changeCurrency" type="id"/>
+    <item name="changeTheme" type="id" />
+
+    <item name="presetSelector" type="id"/>
+
+    <item name="personalPartyTabs" type="id"/>
+    <item name="personalTextView" type="id"/>
+    <item name="partyTextView" type="id"/>
+
+
+</resources>

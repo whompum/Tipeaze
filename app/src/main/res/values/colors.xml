@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="milkyWhite">#edf0f3</color>
+
+    <!--DEFAULT COLOR PALLATE-->
+    <color name="darkNavyBlue">#46637f</color>
+    <color name="lightNavyBlue">#4e6d8d</color>
+    <color name="gold">#fcca00</color>
+
+    <!-- RED COLOR PALLATE-->
+    <color name="lighterDark">#3e4f53</color>
+    <color name="normalCrimson">#ef354d</color>
+    <color name="softPink">#f9b8be</color>
+
+
+    <!--Scrim / Shadows -->
+    <color name="fadingGray">#ac636363</color>
+
+
+</resources>

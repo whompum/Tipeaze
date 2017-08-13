@@ -1,0 +1,38 @@
+<resources>
+
+    <style name="TipViewDefStyle">
+        <!--Replace dimensional attributes' values with references. -->
+        <item name="thumbHighlight">?attr/colorMain</item>
+        <item name="thumbTouchHighlight">?attr/colorTertiary</item>
+        <item name="thumbTouchTextHighlight">?attr/colorMain</item>
+        <item name="thumbSize">38dp</item>
+        <item name="thumbTextSize">14dp</item>
+        <item name="thumbTextHighlight">?attr/colorPrimary</item>
+        <item name="thumbTextPadding">5dp</item>
+
+        <item name="totalTrackSize">@dimen/totalTrackSize</item>
+        <item name="trackHighlight">?attr/colorSecondary</item>
+        <item name="trackStrokeSize">8dp</item>
+        <item name="trackStrokeHighlight">@color/milkyWhite</item>
+        <item name="trackTextHighlight">?attr/colorTertiary</item>
+        <item name="trackTextSize">22sp</item>
+
+        <item name="tickmarkHighlight">?attr/colorPrimary</item>
+        <item name="tickmarkWidth">4dp</item>
+    </style>
+
+    <!-- Change 24sp/16sp into a dimen resource
+         NOTE: Keep these guys at dp's instead of sp's for positioning purposes-->
+    <style name="personalTabsCurrentTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">?attr/personalTabsCurrentTextHighlight</item>
+    </style>
+
+    <style name="personalTabsSecondaryTextStyle">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?attr/personalTabsSecondaryTextHighlight</item>
+    </style>
+
+    
+</resources>

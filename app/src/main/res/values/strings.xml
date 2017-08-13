@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Tipeaze</string>
+
+    <string name="party_text">Party</string>
+    <string name="personal_text">Personal</string>
+
+</resources>

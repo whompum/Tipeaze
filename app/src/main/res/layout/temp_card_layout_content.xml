@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/tempSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/tempImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true" />
+
+    <View
+        android:id="@+id/tempTipView"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_below="@id/tempImageButton"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:background="?attr/colorSecondary" />
+
+
+    <com.example.bryan.tipeaze.RobotoBasedTextview
+        android:id="@+id/tempPersonalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tempTipView"
+        android:text="@string/personal_text" />
+
+    <com.example.bryan.tipeaze.RobotoBasedTextview
+        android:id="@+id/tempPartyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tempPersonalText"
+        android:text="@string/party_text" />
+
+
+
+
+</merge>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="graceTouchHitbox">12dp</dimen>
+
+    <dimen name="halfFabNormal">32dp</dimen>
+    <dimen name="halfFabSmall">20dp</dimen>
+
+    <dimen name="tipViewCardElevation">5dp</dimen>
+    <dimen name="addFabElevation">6dp</dimen>
+
+    <dimen name="horMargin">8dp</dimen>
+    <dimen name="spinnerMargin">2dp</dimen>
+
+    <!--offsets a childrens top margin by 16sp to be placed directly under a textView (16sp). it's sp not dp
+        to scale with the font size.-->
+    <dimen name="personalPartyTabsPosMargin">16sp</dimen>
+
+
+
+</resources>
+
