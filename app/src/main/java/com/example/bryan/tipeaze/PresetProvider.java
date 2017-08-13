@@ -5,6 +5,7 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
+import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,12 +22,11 @@ public class PresetProvider extends ContentProvider {
     public static final String AUTHORITY = "com.example.bryan.tipeaze.PresetProvider";
     public static final Uri CONTENT_URI_MAIN = Uri.parse("content://" + AUTHORITY);
 
-
-
     private static UriMatcher matcher;
 
-
     private PresetHelper helper;
+
+    private String illagalUriMessage = "";
 
     static{
         matcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -44,6 +44,12 @@ public class PresetProvider extends ContentProvider {
     public boolean
     onCreate() {
         helper = new PresetHelper(getContext(), PresetContract.DATABASE_NAME, null, PresetContract.VERSION);
+
+        final Resources res = getContext().getResources();
+        if(res!=null){
+            illagalUriMessage = res.getString(R.string.illegalUriMessage);
+        }
+
         return true;
     }
 
@@ -176,7 +182,7 @@ public class PresetProvider extends ContentProvider {
             return PresetContract.TABLE_PRESET_NAMES.TABLE_NAME;
 
 
-    throw new IllegalArgumentException("The uri doesn't match");
+    throw new IllegalArgumentException(illagalUriMessage);
     }
 
 

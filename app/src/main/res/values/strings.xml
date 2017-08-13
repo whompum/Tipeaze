@@ -4,4 +4,6 @@
     <string name="party_text">Party</string>
     <string name="personal_text">Personal</string>
 
+    <string name="illegalUriMessage">That Uri didn\'t match any recorded pointers</string>
+
 </resources>
