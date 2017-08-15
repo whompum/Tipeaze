@@ -50,7 +50,6 @@ public class MainScreen extends AppCompatActivity {
     private void tempSetupSpinner(){
         Spinner spinner = (Spinner) findViewById(R.id.presetSelector);
         spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.presect_selector_hint_appearance, new String[]{"custom", "test", "hello"}));
-
     }
 
 
