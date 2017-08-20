@@ -47,11 +47,11 @@ public class PresetLoader implements LoaderManager.LoaderCallbacks<Cursor> {
 
     public interface PresetLoaderQueryResponse{
 
-        public Loader<Cursor> onCreateLoader(int id, Bundle args);
+        Loader<Cursor> onCreateLoader(int id, Bundle args);
 
-        public void onLoadFinished(Loader<Cursor> loader, Cursor data);
+        void onLoadFinished(Loader<Cursor> loader, Cursor data);
 
-        public void onLoaderReset(Loader<Cursor> loader);
+        void onLoaderReset(Loader<Cursor> loader);
 
     }
 

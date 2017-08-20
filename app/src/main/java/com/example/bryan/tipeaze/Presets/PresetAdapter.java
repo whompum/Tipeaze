@@ -5,4 +5,5 @@ package com.example.bryan.tipeaze.Presets;
  */
 
 public class PresetAdapter {
+
 }
