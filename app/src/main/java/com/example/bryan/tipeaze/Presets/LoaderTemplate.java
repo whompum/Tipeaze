@@ -1,6 +1,5 @@
 package com.example.bryan.tipeaze.Presets;
 
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.app.LoaderManager.LoaderCallbacks;
 import android.support.v4.app.LoaderManager;

@@ -90,10 +90,17 @@ public class PresetContract implements BaseColumns {
         }
 
 
+
+
+
+
     }
 
 
     public static final class TABLE_PRESET_NAMES implements BaseColumns {
+
+        public static final String DEFAULT_PRESET_NAME = "Custom";
+
 
         public static final String TABLE_PRESET_NAMES_SORT_ORDER = "ASC";
 
@@ -109,6 +116,7 @@ public class PresetContract implements BaseColumns {
 
 
 
+        //Why is this not capitalized per java static-variable convention!
         public static Uri presetUri = Uri.withAppendedPath(PresetProvider.CONTENT_URI_MAIN, TABLE_NAME);
 
 
