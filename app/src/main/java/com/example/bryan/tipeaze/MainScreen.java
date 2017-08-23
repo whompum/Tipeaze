@@ -9,6 +9,9 @@ import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
+import com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview;
+import com.example.bryan.tipeaze.CustomViews.TipView;
+
 public class MainScreen extends AppCompatActivity {
 
 

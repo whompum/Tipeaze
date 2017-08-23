@@ -63,7 +63,7 @@
             android:layout_alignParentRight="true" />
 
 
-        <com.example.bryan.tipeaze.TipView
+        <com.example.bryan.tipeaze.CustomViews.TipView
             android:id="@id/tipView"
 
             android:layout_centerHorizontal="true"
@@ -86,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
-            <com.example.bryan.tipeaze.RobotoBasedTextview
+            <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
                 style="@style/personalTabsCurrentTextStyle"
 
                 app:font="BOLD"
@@ -96,7 +96,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <com.example.bryan.tipeaze.RobotoBasedTextview
+            <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
                 style="@style/personalTabsSecondaryTextStyle"
                 android:layout_marginTop="@dimen/personalPartyTabsPosMargin"
 

@@ -27,14 +27,14 @@
         android:background="?attr/colorSecondary" />
 
 
-    <com.example.bryan.tipeaze.RobotoBasedTextview
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
         android:id="@+id/tempPersonalText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/tempTipView"
         android:text="@string/personal_text" />
 
-    <com.example.bryan.tipeaze.RobotoBasedTextview
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
         android:id="@+id/tempPartyText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
