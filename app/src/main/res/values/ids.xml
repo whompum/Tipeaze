@@ -17,6 +17,7 @@
     <item name="changeTheme" type="id" />
 
     <item name="presetSelector" type="id"/>
+    <item name="presetTextViewId" type="id"/>
 
     <item name="personalPartyTabs" type="id"/>
     <item name="personalTextView" type="id"/>

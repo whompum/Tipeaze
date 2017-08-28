@@ -4,7 +4,9 @@
     android:layout_width="wrap_content"
     android:textColor="?attr/colorMain"
     android:textSize="16sp"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@id/presetTextViewId"
+    >
 
 </com.example.bryan.tipeaze.RobotoBasedTextview>
     <!--Since the triangle is a vector i cannot use it as drawableLeftRightEtc

@@ -14,9 +14,19 @@ import android.util.Log;
 public class PresetHelper extends SQLiteOpenHelper {
 
 
+    private static PresetHelper instance;
 
 
-    public PresetHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public static PresetHelper getInstance(Context c){
+
+        if(instance == null)
+            instance = new PresetHelper(c.getApplicationContext(), PresetContract.DATABASE_NAME, null, PresetContract.VERSION);
+
+    return instance;
+    }
+
+
+    private PresetHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
@@ -26,11 +36,8 @@ public class PresetHelper extends SQLiteOpenHelper {
         db.execSQL(PresetContract.TABLE_PRESET_NAMES.CREATE_TABLE);
 
 
-
         if(!checkIfHasDefaults(db))
             initDefaultData(db);
-
-
 
     }
 
@@ -79,6 +86,8 @@ public class PresetHelper extends SQLiteOpenHelper {
         db.execSQL(insertNameCol);
 
 
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_PRESET_NAME, Presets.DEFAULT_NAME);
+
         nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_TIP ,presets.getCurrTip());
         nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_TAX, presets.getCurrTax());
         nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_SPLIT, presets.getCurrSplit());
@@ -97,6 +106,8 @@ public class PresetHelper extends SQLiteOpenHelper {
 
 
     private String insertWithValues(ContentValues values, String table){
+
+        //Converts column-data mappings into sqlite executable statement
 
         final StringBuilder $sql = new StringBuilder();
         $sql.append(" INSERT INTO ")
