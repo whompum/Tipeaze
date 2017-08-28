@@ -2,11 +2,10 @@
 <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:textColor="?attr/colorMain"
+    android:textColor="?attr/colorTertiary"
     android:textSize="16sp"
     android:layout_height="wrap_content"
-    android:id="@id/presetTextViewId"
-    >
+    android:id="@id/presetTextViewId">
 
 </com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview>
     <!--Since the triangle is a vector i cannot use it as drawableLeftRightEtc
