@@ -8,6 +8,8 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 
+import com.example.bryan.tipeaze.R;
+
 /**
  * TODO basically the problem is i need to always have some content displayed. So if the user never saved any presets
  * a default one is given. The question is how do i take that responsibility out of any class and have it be default functionality?
@@ -36,7 +38,7 @@ public class PresetQueryManager implements LoaderTemplate.LoaderResponseClient {
         loader.setUri(PresetContract.TABLE_PRESET_NAMES.presetUri);
         loader.setProjection(columns);
 
-        adapter = new PresetAdapter(context, null);
+        adapter = new PresetAdapter(context, R.layout.presect_selector_hint_appearance, null);
     }
 
     @Override

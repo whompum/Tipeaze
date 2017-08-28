@@ -43,7 +43,7 @@ public class PresetProvider extends ContentProvider {
     @Override
     public boolean
     onCreate() {
-        helper = new PresetHelper(getContext(), PresetContract.DATABASE_NAME, null, PresetContract.VERSION);
+        helper = PresetHelper.getInstance(getContext());
 
         final Resources res = getContext().getResources();
         if(res!=null){
