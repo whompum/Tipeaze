@@ -85,7 +85,6 @@ public class PresetProvider extends ContentProvider {
                 "",
                 sortBy);
 
-        querResults.close();
 
         registerObservation(querResults, uri);
 
@@ -170,7 +169,7 @@ public class PresetProvider extends ContentProvider {
         return helper.getReadableDatabase();
     }
 
-    public SQLiteDatabase getWriteableDb(){
+    private SQLiteDatabase getWriteableDb(){
         return helper.getWritableDatabase();
     }
 

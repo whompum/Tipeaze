@@ -27,7 +27,15 @@ public class PresetQueryManager implements LoaderTemplate.LoaderResponseClient {
 
     private CursorLoader loader;
 
-    private String[] columns =  { PresetContract.TABLE_PRESET_NAMES.COL_NAME };
+    private String[] columns =  { PresetContract.TABLE_PRESET_NAMES._ID, PresetContract.TABLE_PRESET_NAMES.COL_NAME };
+    /**
+     * LESSON:
+     * Originally columns had only 1 value 'COL_NAME'. This caused the error "column _id does not exist"
+     * in the CursorAdapter because
+     * CursorAdapter requires _id to be present. So next time be sure to include _id where its needed like i did above
+     *
+     */
+
 
     private boolean isEmpty;
 

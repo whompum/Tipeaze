@@ -1,5 +1,6 @@
 package com.example.bryan.tipeaze;
 
+import android.content.ContentValues;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.widget.Spinner;
 
 import com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview;
 import com.example.bryan.tipeaze.CustomViews.TipView;
+import com.example.bryan.tipeaze.Presets.PresetContract;
+import com.example.bryan.tipeaze.Presets.PresetQueryManager;
 
 public class MainScreen extends AppCompatActivity {
 
@@ -52,7 +55,9 @@ public class MainScreen extends AppCompatActivity {
 
     private void tempSetupSpinner(){
         Spinner spinner = (Spinner) findViewById(R.id.presetSelector);
-        spinner.setAdapter(new ArrayAdapter<String>(this, R.layout.presect_selector_hint_appearance, new String[]{"custom", "test", "hello"}));
+        PresetQueryManager queryManager = new PresetQueryManager(getSupportLoaderManager(), this);
+        spinner.setAdapter(queryManager.getAdapter());
+
     }
 
 

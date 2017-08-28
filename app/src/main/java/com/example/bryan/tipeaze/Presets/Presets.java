@@ -6,7 +6,7 @@ package com.example.bryan.tipeaze.Presets;
 
 public class Presets {
 
-    public static final String DEFAULT_NAME = "Custom";
+    public static final String DEFAULT_NAME = "'Custom'";
 
     private int currTip = 0;
     private int currTax = 0;

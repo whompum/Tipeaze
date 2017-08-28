@@ -16,7 +16,6 @@ public class PresetHelper extends SQLiteOpenHelper {
 
     private static PresetHelper instance;
 
-
     public static PresetHelper getInstance(Context c){
 
         if(instance == null)
@@ -36,7 +35,7 @@ public class PresetHelper extends SQLiteOpenHelper {
         db.execSQL(PresetContract.TABLE_PRESET_NAMES.CREATE_TABLE);
 
 
-        if(!checkIfHasDefaults(db))
+        if(shouldInitDefaultData(db))
             initDefaultData(db);
 
     }
@@ -44,14 +43,16 @@ public class PresetHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         //check if we should upgrade based on oldVersion/newVersion
+        db.execSQL("DROP TABLE IF EXISTS " + PresetContract.TABLE_PRESET_INFO.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + PresetContract.TABLE_PRESET_NAMES.TABLE_NAME);
         onCreate(db);
     }
 
 
-    private boolean checkIfHasDefaults(SQLiteDatabase database){
+    private boolean shouldInitDefaultData(SQLiteDatabase database){
 
         final String[] projection = {PresetContract.TABLE_PRESET_NAMES._ID};
-        final String[] args = {PresetContract.TABLE_PRESET_NAMES.DEFAULT_PRESET_NAME};
+        final String[] args = {Presets.DEFAULT_NAME};
 
         final Cursor cursor = database.query(PresetContract.TABLE_PRESET_NAMES.TABLE_NAME,
                                              projection,
@@ -62,41 +63,50 @@ public class PresetHelper extends SQLiteOpenHelper {
 
         if(cursor.getCount() > 0){
             cursor.close();
-            return true;
+            Log.i("test", "Looks like i don't init default data");
+
+            return false;
         }
 
-        return false;
+        Log.i("test", "Looks like i do init default data");
+
+        return true;
     }
 
 
     private void initDefaultData(SQLiteDatabase db){
 
-        final Presets presets = new Presets();
+        final Presets defaultPresets = new Presets();
 
         final ContentValues nameValues = new ContentValues();
         nameValues.put(PresetContract.TABLE_PRESET_NAMES.COL_NAME,
                        Presets.DEFAULT_NAME);
 
-        final String insertNameCol = insertWithValues(nameValues, PresetContract.TABLE_PRESET_NAMES.TABLE_NAME);
+        final String insertNameCol = valuesToString(nameValues, PresetContract.TABLE_PRESET_NAMES.TABLE_NAME);
 
         nameValues.remove(PresetContract.TABLE_PRESET_NAMES.COL_NAME);
 
+        Log.i("test", "COLUMN VALUE BEFORE INSERTING: " + Presets.DEFAULT_NAME);
         Log.i("test", " INSERTING NAME: " + insertNameCol);
+
+
+        Log.i("test", "Before first execSQL");
 
         db.execSQL(insertNameCol);
 
+        Log.i("test", "After first execSQL");
 
         nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_PRESET_NAME, Presets.DEFAULT_NAME);
 
-        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_TIP ,presets.getCurrTip());
-        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_TAX, presets.getCurrTax());
-        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_SPLIT, presets.getCurrSplit());
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_TIP , defaultPresets.getCurrTip());
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_TAX, defaultPresets.getCurrTax());
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_CURR_SPLIT, defaultPresets.getCurrSplit());
 
-        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_MAX_TIP, presets.getMaxTip());
-        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_MAX_TAX, presets.getMaxTip());
-        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_MAX_SPLIT, presets.getMaxSplit());
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_MAX_TIP, defaultPresets.getMaxTip());
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_MAX_TAX, defaultPresets.getMaxTip());
+        nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_MAX_SPLIT, defaultPresets.getMaxSplit());
 
-        final String insertNameData = insertWithValues(nameValues, PresetContract.TABLE_PRESET_INFO.TABLE_NAME);
+        final String insertNameData = valuesToString(nameValues, PresetContract.TABLE_PRESET_INFO.TABLE_NAME);
 
         Log.i("test", "INSERTING NAME DATA: " + insertNameData);
 
@@ -105,7 +115,7 @@ public class PresetHelper extends SQLiteOpenHelper {
     }
 
 
-    private String insertWithValues(ContentValues values, String table){
+    private String valuesToString(ContentValues values, String table){
 
         //Converts column-data mappings into sqlite executable statement
 

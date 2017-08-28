@@ -14,7 +14,7 @@ public class PresetContract implements BaseColumns {
 
     public static final String DATABASE_NAME = "presets.db";
 
-    public static final int VERSION = 1;
+    public static final int VERSION = 2;
 
     public static final String MIME_NO_TYPE = "NO_TYPE";
 
@@ -99,14 +99,11 @@ public class PresetContract implements BaseColumns {
 
     public static final class TABLE_PRESET_NAMES implements BaseColumns {
 
-        public static final String DEFAULT_PRESET_NAME = "Custom";
-
-
-        public static final String TABLE_PRESET_NAMES_SORT_ORDER = "ASC";
+        public static final String TABLE_PRESET_NAMES_SORT_ORDER = "'ASC'";
 
         public static final String TABLE_NAME = "preset_names";
 
-        public static final String COL_NAME = "name";
+        public static final String COL_NAME = "NAME";
 
         public static final String CREATE_TABLE =
                 "create table " + TABLE_NAME +
