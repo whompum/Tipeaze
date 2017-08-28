@@ -42,7 +42,7 @@ public class PresetHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //check if we should upgrade based on oldVersion/newVersion
+        //TODO check if we should upgrade based on oldVersion/newVersion
         db.execSQL("DROP TABLE IF EXISTS " + PresetContract.TABLE_PRESET_INFO.TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + PresetContract.TABLE_PRESET_NAMES.TABLE_NAME);
         onCreate(db);
@@ -63,12 +63,10 @@ public class PresetHelper extends SQLiteOpenHelper {
 
         if(cursor.getCount() > 0){
             cursor.close();
-            Log.i("test", "Looks like i don't init default data");
 
             return false;
         }
 
-        Log.i("test", "Looks like i do init default data");
 
         return true;
     }
@@ -86,15 +84,9 @@ public class PresetHelper extends SQLiteOpenHelper {
 
         nameValues.remove(PresetContract.TABLE_PRESET_NAMES.COL_NAME);
 
-        Log.i("test", "COLUMN VALUE BEFORE INSERTING: " + Presets.DEFAULT_NAME);
-        Log.i("test", " INSERTING NAME: " + insertNameCol);
-
-
-        Log.i("test", "Before first execSQL");
 
         db.execSQL(insertNameCol);
 
-        Log.i("test", "After first execSQL");
 
         nameValues.put(PresetContract.TABLE_PRESET_INFO.COL_PRESET_NAME, Presets.DEFAULT_NAME);
 
@@ -108,7 +100,7 @@ public class PresetHelper extends SQLiteOpenHelper {
 
         final String insertNameData = valuesToString(nameValues, PresetContract.TABLE_PRESET_INFO.TABLE_NAME);
 
-        Log.i("test", "INSERTING NAME DATA: " + insertNameData);
+
 
         db.execSQL(insertNameData);
 
