@@ -15,13 +15,10 @@ import com.example.bryan.tipeaze.Presets.PresetQueryManager;
 
 public class MainScreen extends AppCompatActivity {
 
-
     private TipView tipView;
 
     private AppCompatSpinner presetSelector;
     private AppCompatImageButton extras;
-
-    private RelativeLayout personalPartyTab;
 
     private RobotoBasedTextview personalTextView;
     private RobotoBasedTextview partyTextView;
@@ -38,9 +35,9 @@ public class MainScreen extends AppCompatActivity {
         this.presetSelector = (AppCompatSpinner) findViewById(R.id.presetSelector);
         this.extras = (AppCompatImageButton) findViewById(R.id.extras);
 
-        this.personalPartyTab = (RelativeLayout) findViewById(R.id.personalPartyTabs);
-        this.personalTextView = (RobotoBasedTextview) personalPartyTab.findViewById(R.id.personalTextView);
-        this.partyTextView = (RobotoBasedTextview) personalPartyTab.findViewById(R.id.partyTextView);
+
+        this.personalTextView = (RobotoBasedTextview) findViewById(R.id.personalTextView);
+        this.partyTextView = (RobotoBasedTextview) findViewById(R.id.partyTextView);
 
         this.addFab = (FloatingActionButton) findViewById(R.id.addFab);
 

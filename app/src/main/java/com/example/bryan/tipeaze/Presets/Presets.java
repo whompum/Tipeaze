@@ -66,6 +66,10 @@ public class Presets {
             return this;
         }
 
+        public Presets apply(){
+            return presets;
+        }
+
 
     }
 

@@ -74,7 +74,7 @@ public class PresetHelper extends SQLiteOpenHelper {
 
     private void initDefaultData(SQLiteDatabase db){
 
-        final Presets defaultPresets = new Presets();
+        final Presets defaultPresets = new Presets.Builder().apply();
 
         final ContentValues nameValues = new ContentValues();
         nameValues.put(PresetContract.TABLE_PRESET_NAMES.COL_NAME,
