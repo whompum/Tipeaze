@@ -30,18 +30,20 @@
 
         <android.support.v7.widget.AppCompatSpinner
 
-            android:background="?android:selectableItemBackground"
-
             android:layout_marginTop="@dimen/spinnerMargin"
             android:layout_marginLeft="@dimen/horMargin"
             android:layout_marginStart="@dimen/horMargin"
 
             android:id="@id/presetSelector"
 
-            android:spinnerMode="dialog"
+            android:spinnerMode="dropdown"
+            android:popupBackground="?attr/colorBackground"
+
 
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+
+            app:overlapAnchor="false" />
 
 
         <android.support.v7.widget.AppCompatImageButton
@@ -122,11 +124,11 @@ android:id="@id/addFabPosView"
 android:layout_width="match_parent"
 android:layout_height="@dimen/halfFabNormal"
 android:layout_below="@id/tipViewCard"/>
+
 <android.support.design.widget.FloatingActionButton
 
-    android:clickable="true"
 
-    app:rippleColor="?attr/colorSecondary"
+    android:clickable="true"
 
     app:srcCompat="@drawable/plus"
 

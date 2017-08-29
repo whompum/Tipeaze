@@ -9,6 +9,7 @@
         <item name="colorTertiary">@color/gold</item>
         <item name="colorBackground">@color/milkyWhite</item>
 
+
         <item name="tipViewCardHighlight">?attr/colorPrimary</item>
         <item name="addFabBackground">?attr/colorMain</item>
         <item name="personalTabsCurrentTextHighlight">?attr/colorTertiary</item>
@@ -18,6 +19,10 @@
 
         <item name="billContentHighlight">?attr/colorPrimary</item>
         <item name="billTotalHighlight">?attr/colorTertiary</item>
+
+        <item name="colorControlHighlight">?attr/colorSecondary</item>
+        <item name="colorControlActivated">?attr/colorTertiary</item>
+        <item name="colorControlNormal">?attr/colorBackground</item>
 
     </style>
 
@@ -39,6 +44,10 @@
 
         <item name="billContentHighlight">?attr/colorMain</item>
         <item name="billTotalHighlight">?attr/colorPrimary</item>
+
+        <item name="colorControlHighlight">?attr/colorSecondary</item>
+        <item name="colorControlNormal">?attr/colorTertiary</item>
+        <item name="colorControlActivated">?attr/colorBackground</item>
 
     </style>
 

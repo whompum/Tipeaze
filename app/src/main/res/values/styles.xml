@@ -34,5 +34,9 @@
         <item name="android:textColor">?attr/personalTabsSecondaryTextHighlight</item>
     </style>
 
+    <style name="SpinnerStyling" parent="Base.Widget.AppCompat.Spinner">
+        <item name="colorControlNormal">#ff0077</item>
+    </style>
+
     
 </resources>

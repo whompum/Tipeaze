@@ -32,10 +32,8 @@ public class ThemeManager {
     public static void changeTheme(int themeId, Context context){
         final SharedPreferences preferences = getPreferences(context);
 
-
         if(preferences!=null)
             preferences.edit().putInt(THEME_KEY, themeId).commit();
-
 
     }
 
