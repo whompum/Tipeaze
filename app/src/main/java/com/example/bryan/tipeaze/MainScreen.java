@@ -1,22 +1,16 @@
 package com.example.bryan.tipeaze;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatSpinner;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.util.Log;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 
 import com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview;
 import com.example.bryan.tipeaze.CustomViews.TipView;
-import com.example.bryan.tipeaze.Presets.PresetContract;
+import com.example.bryan.tipeaze.Presets.PresetAdapter;
 import com.example.bryan.tipeaze.Presets.PresetQueryManager;
 
 public class MainScreen extends AppCompatActivity {
@@ -50,13 +44,17 @@ public class MainScreen extends AppCompatActivity {
 
         this.addFab = (FloatingActionButton) findViewById(R.id.addFab);
 
+        tempSetupSpinner();
+
     }
 
 
     private void tempSetupSpinner(){
         Spinner spinner = (Spinner) findViewById(R.id.presetSelector);
         PresetQueryManager queryManager = new PresetQueryManager(getSupportLoaderManager(), this);
-        spinner.setAdapter(queryManager.getAdapter());
+        PresetAdapter adapter = queryManager.getAdapter();
+
+        spinner.setAdapter(adapter);
     }
 
 

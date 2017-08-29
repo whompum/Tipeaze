@@ -37,7 +37,6 @@ public class PresetQueryManager implements LoaderTemplate.LoaderResponseClient {
      */
 
 
-    private boolean isEmpty;
 
     public PresetQueryManager(@NonNull LoaderManager manager, Context context){
         presetLoader = new LoaderTemplate(manager, this, LOADER_ID);
@@ -46,7 +45,7 @@ public class PresetQueryManager implements LoaderTemplate.LoaderResponseClient {
         loader.setUri(PresetContract.TABLE_PRESET_NAMES.presetUri);
         loader.setProjection(columns);
 
-        adapter = new PresetAdapter(context, R.layout.presect_selector_hint_appearance, null);
+        adapter = new PresetAdapter(context, null);
     }
 
     @Override
@@ -75,9 +74,6 @@ public class PresetQueryManager implements LoaderTemplate.LoaderResponseClient {
         adapter.swapCursor(cursor);
     }
 
-    public interface OnEmptyLoad{
-        void onEmptyLoad();
-    }
 
 
 
