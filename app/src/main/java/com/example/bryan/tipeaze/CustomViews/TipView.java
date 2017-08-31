@@ -100,6 +100,7 @@ public class TipView extends View {
 
         graceTouchRadius = getResources().getDimensionPixelSize(R.dimen.graceTouchHitbox);
 
+        if(!isInEditMode())
         vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
     }
 

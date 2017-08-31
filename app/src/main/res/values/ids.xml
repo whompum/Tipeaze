@@ -23,4 +23,7 @@
     <item name="partyTextView" type="id"/>
 
 
+    <item name="personalPartyViewPagerId" type="id"/>
+
+
 </resources>

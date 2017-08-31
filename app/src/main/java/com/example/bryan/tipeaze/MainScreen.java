@@ -29,7 +29,7 @@ public class MainScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(ThemeManager.getTheme(this));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main_screen);
+        setContentView(R.layout.tipview_card_layout);
 
         this.tipView = (TipView) findViewById(R.id.tipView);
         this.presetSelector = (AppCompatSpinner) findViewById(R.id.presetSelector);
