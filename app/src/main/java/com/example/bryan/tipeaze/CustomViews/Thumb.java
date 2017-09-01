@@ -126,8 +126,7 @@ public class Thumb extends Drawable {
     @Override
     public void draw(@NonNull Canvas canvas) {
 
-
-        canvas.drawCircle(getBounds().centerX(), getBounds().centerY(), getBounds().width()*0.5f, shadowPaint);
+        canvas.drawCircle(getBounds().centerX(), getBounds().centerY(), getBounds().width()*0.5f+2, shadowPaint);
 
         canvas.drawCircle(getBounds().centerX(), getBounds().centerY(), (getBounds().width()*0.5f)-3, thumbPaint);
 
