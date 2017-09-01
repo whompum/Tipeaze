@@ -31,50 +31,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-        <android.support.v7.widget.AppCompatSpinner
-
-            android:layout_marginTop="@dimen/spinnerMargin"
-            android:layout_marginLeft="@dimen/horMargin"
-            android:layout_marginStart="@dimen/horMargin"
-
-            android:id="@id/presetSelector"
-
-            android:spinnerMode="dropdown"
-            android:popupBackground="?attr/colorBackground"
-
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            app:overlapAnchor="false" />
-
-
-        <android.support.v7.widget.AppCompatImageButton
-
-            android:background="?attr/selectableItemBackgroundBorderless"
-            app:srcCompat="@drawable/settings_icon"
-
-            android:scaleType="centerInside"
-
-            android:layout_marginEnd="@dimen/horMargin"
-            android:layout_marginRight="@dimen/horMargin"
-            android:layout_marginTop="@dimen/horMargin"
-
-            android:id="@id/extras"
-
-            android:layout_width="wrap_content"
-            android:layout_height="26dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true" />
-
+        <include layout="@layout/toolbar"
+            android:id="@id/toolbar"/>
 
         <com.example.bryan.tipeaze.CustomViews.TipView
             android:id="@id/tipView"
 
             android:layout_centerHorizontal="true"
 
-            android:layout_below="@id/extras"
+            android:layout_below="@id/toolbar"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

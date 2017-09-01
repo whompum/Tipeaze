@@ -1,8 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.Toolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:contentInsetStart="0dp"
+    android:minHeight="0dp">
+
+<!--Don't care about minimum height of the
+    toolbar according to MD standards -->
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/horMargin"
+        android:layout_marginStart="@dimen/horMargin"
+        android:layout_marginEnd="@dimen/horMargin"
+        android:layout_marginRight="@dimen/horMargin"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--The spinner comes with default values for the topMargin
+         so we adjust using negative values, to negate the spinners
+         built in margin, and use our own instead.-->
+        <android.support.v7.widget.AppCompatSpinner
+
+            android:layout_marginTop="-6dp"
+            android:id="@id/presetSelector"
+
+            android:spinnerMode="dropdown"
+            android:popupBackground="?attr/colorBackground"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:overlapAnchor="false" />
+
+
+        <android.support.v7.widget.AppCompatImageButton
+
+            android:background="?attr/selectableItemBackgroundBorderless"
+            app:srcCompat="@drawable/settings_icon"
+
+            android:scaleType="centerInside"
+
+            android:layout_marginEnd="@dimen/horMargin"
+            android:layout_marginRight="@dimen/horMargin"
+
+
+            android:id="@id/extras"
+
+            android:layout_width="wrap_content"
+            android:layout_height="26dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true" />
+
+
+
+    </RelativeLayout>
 
 </android.support.v7.widget.Toolbar>
