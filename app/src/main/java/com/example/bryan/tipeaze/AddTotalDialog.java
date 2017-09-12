@@ -94,9 +94,8 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
             this.total = savedInstanceState.getString(TOTAL_KEY);
         }
 
-        totalDisplay.resetText();
-
-        return contentView;
+        totalDisplay.setText(total);
+          return contentView;
     }
 
     @Override
@@ -114,31 +113,23 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
         Button castView = null;
 
+        final int id = v.getId();
+
         if (v instanceof Button)
             castView = (Button) v;
 
-        final int id = v.getId();
-
-        if (id == R.id.backspaceCalc) {
+        if (id == R.id.backspaceCalc)
             totalDisplay.onBackSpace();
-            Log.i(TAG, "WHAT THE FUCK!");
-        } else if (id == R.id.deleteCalc)
+
+         else if (id == R.id.deleteCalc)
             totalDisplay.onDelete();
 
 
-        else if (id == R.id.doneFab) {
-            if (resultClient != null)
-                resultClient.<String>sendResult(totalDisplay.getText().toString());
-        }
+        else if (id == R.id.doneFab & resultClient != null)
+            resultClient.<String>sendResult(totalDisplay.getText().toString());
 
-            else {
-                if (castView != null & id == -1)
-                    totalDisplay.append(castView.getText());
-
-
-            }
-
-
+        else if (castView != null & id == -1)
+             totalDisplay.append(castView.getText());
 
     }
 
