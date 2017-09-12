@@ -34,15 +34,15 @@
                 android:layout_height="wrap_content" />
 
 
-            <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
-
-                app:font="BOLD"
+            <com.example.bryan.tipeaze.CustomViews.CurrencyEditText
+                android:maxLines="1"
+                android:id="@id/totalDisplay"
+                android:clickable="true"
                 android:layout_gravity="center"
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="60dp"
                 android:textSize="48sp"
                 android:textColor="?attr/colorTertiary"
-                android:text="$28.90"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -150,8 +150,8 @@
                     android:background="?attr/selectableItemBackgroundBorderless"
                     android:layout_width="wrap_content"
                     android:layout_height="64dp" />
-                <ImageButton
-
+                <Button
+                    android:id="@id/backspaceCalc"
                     android:minWidth="86dp"
                     android:layout_width="86dp"
                     android:layout_height="64dp"
@@ -168,6 +168,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="64dp" />
                 <Button
+                    android:id="@id/deleteCalc"
                     android:minWidth="86dp"
                     android:textSize="28sp"
                     android:text="DEL"
