@@ -9,7 +9,6 @@
         <item name="colorTertiary">@color/gold</item>
         <item name="colorBackground">@color/milkyWhite</item>
 
-
         <item name="tipViewCardHighlight">?attr/colorPrimary</item>
         <item name="addFabBackground">?attr/colorMain</item>
         <item name="personalTabsCurrentTextHighlight">?attr/colorTertiary</item>

@@ -6,4 +6,6 @@
 
     <string name="illegalUriMessage">That Uri didn\'t match any recorded pointers</string>
 
+    <string name="dialogTotalText">Total</string>
+
 </resources>

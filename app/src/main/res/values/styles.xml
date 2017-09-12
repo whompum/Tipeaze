@@ -12,7 +12,7 @@
 
         <item name="totalTrackSize">@dimen/totalTrackSize</item>
         <item name="trackHighlight">?attr/colorSecondary</item>
-        <item name="trackStrokeSize">8dp</item>
+        <item name="trackStrokeSize">4dp</item>
         <item name="trackStrokeHighlight">@color/milkyWhite</item>
         <item name="trackTextHighlight">?attr/colorTertiary</item>
         <item name="trackTextSize">22sp</item>

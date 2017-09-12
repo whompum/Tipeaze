@@ -26,4 +26,10 @@
     <item name="personalPartyViewPagerId" type="id"/>
 
 
+    <item name="backspaceCalc" type="id"/>
+    <item name="deleteCalc" type="id"/>
+    <item name="calcGridLayout" type="id"/>
+    <item name="totalDisplay" type="id"/>
+    <item name="doneFab" type="id"/>
+
 </resources>
