@@ -4,16 +4,12 @@ import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
-import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.widget.SpinnerAdapter;
+
 
 import com.example.bryan.tipeaze.CurrencyFormatter;
 
-import java.text.DecimalFormat;
-import java.util.Locale;
 
 public class CurrencyEditText extends AppCompatEditText {
 
@@ -42,6 +38,10 @@ public class CurrencyEditText extends AppCompatEditText {
     public void onBackSpace(){ //a is the string representation of this views Editable object; Named 'a' for simplicity
         //'r' is the result after the substring operation :)
         final String a = getText().toString();
+
+        if(isStringEmpty(a))
+            return;
+
         final String r = a.substring(0, a.length()-1);
         setText(r);
     }
@@ -54,6 +54,9 @@ public class CurrencyEditText extends AppCompatEditText {
         setText("0");
     }
 
+    public boolean isStringEmpty(String text){
+        return (text.length() == 0);
+    }
 
     private TextWatcher watcher = new TextWatcher() {
         @Override
@@ -66,12 +69,12 @@ public class CurrencyEditText extends AppCompatEditText {
 
             removeTextChangedListener(this);
 
-            final String fuck = s.toString();
+            final String unCharredText = s.toString();
 
-            if(fuck.length() == 0)
+            if(isStringEmpty(unCharredText))
                 return;
 
-            final String cleanedText = formatter.cleanText(fuck);
+            final String cleanedText = formatter.cleanText(unCharredText);
 
             final double cookedText = formatter.cookText(cleanedText);
 
