@@ -6,6 +6,7 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 
 
 import com.example.bryan.tipeaze.CurrencyFormatter;
@@ -16,6 +17,8 @@ public class CurrencyEditText extends AppCompatEditText {
     public static final String TAG = "CurrencyEditText";
 
     private final CurrencyFormatter formatter = CurrencyFormatter.getInstance();
+
+    private OnTotalChanged onTotalChanged;
 
     public CurrencyEditText(Context context) {
         super(context);
@@ -74,15 +77,21 @@ public class CurrencyEditText extends AppCompatEditText {
             if(isStringEmpty(unCharredText))
                 return;
 
-            final String cleanedText = formatter.cleanText(unCharredText);
+            Log.i("test", "UNCHARRED TEXT: " + unCharredText);
 
-            final double cookedText = formatter.cookText(cleanedText);
+            //Converts pennies to a real cash value. E.G. 2876 becomes 28.76 / 2.876 depending on fractions the Locale uses.
+            final double cashValue = formatter.penniesToCash(unCharredText);
 
-            final String formattedValue = formatter.format(cookedText);
+            Log.i("test", "DOUBLE: " + cashValue);
+
+            final String formattedValue = formatter.format(cashValue);
 
             setText(formattedValue);
 
             setCursor(formattedValue.length());
+
+            if(onTotalChanged!=null)
+                onTotalChanged.onTotalChanged(formatter.cashToPennies(formattedValue));
 
             addTextChangedListener(this);
         }
@@ -92,6 +101,14 @@ public class CurrencyEditText extends AppCompatEditText {
 
         }
     };
+
+
+
+
+
+    public void setOnTotalChangedListener(OnTotalChanged client){
+        this.onTotalChanged = client;
+    }
 
 
 
