@@ -23,6 +23,9 @@
         <item name="colorControlActivated">?attr/colorTertiary</item>
         <item name="colorControlNormal">?attr/colorBackground</item>
 
+        <item name="addTotalPrimaryColor">?attr/colorTertiary</item>
+        <item name="addTotalSecondaryColor">#ff6d6d</item>
+
     </style>
 
     <!--Color main will probably always be white, so i'll only set that in DefaultTheme -->

@@ -1,31 +1,25 @@
 package com.example.bryan.tipeaze;
 
 import android.app.Dialog;
-import android.icu.util.Currency;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
-import android.text.Editable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.ImageButton;
 
 import com.example.bryan.tipeaze.CustomViews.CurrencyEditText;
-import com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview;
+import com.example.bryan.tipeaze.CustomViews.OnTotalChanged;
 
-/**
- * Created by bryan on 9/1/2017.
- */
-
-public class AddTotalDialog extends DialogFragment implements View.OnClickListener {
+public class AddTotalDialog extends DialogFragment implements View.OnClickListener, OnTotalChanged {
 
     public static final String TAG = "AddTotalDialog";
 
@@ -33,16 +27,27 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
     public static final String TOTAL_KEY = "TheTotal";
 
-    private String total = "0";
-
     private CurrencyEditText totalDisplay;
     private FloatingActionButton doneFab;
 
-    public interface Result<String> {
-        void sendResult(String result);
-    }
+    private Animation hideAnim = null;
+    private Animation showAnim = null;
+
+    private boolean isShowing = true;
 
     private Result resultClient;
+
+
+    @Override //Recieves notifications when CurrencyEditText's value changes
+    public void onTotalChanged(String total) {
+        //Parse to a raw string with numbers only, then check if there is any number but a zero
+        final long pennies = Long.valueOf(total); //Should be guarenteed to be a digit-only value
+
+        if(pennies > 0 & !isShowing)
+            showView(doneFab);
+        else if (pennies == 0 & isShowing)
+            hideView(doneFab);
+    }
 
 
     public static AddTotalDialog newInstance(Result<String> resultClient){
@@ -67,10 +72,30 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
         final View contentView = inflater.inflate(contentLayout, container, false);
 
-        /**
-         * Init Views based on savedInstanceState if i can
-         */
+        //Do work to do a circular reveal on the view
 
+
+        initCalc(contentView);
+
+        this.totalDisplay = (CurrencyEditText) contentView.findViewById(R.id.totalDisplay);
+        this.doneFab = (FloatingActionButton) contentView.findViewById(R.id.doneFab);
+        doneFab.setOnClickListener(this);
+
+        String total = "0";
+
+
+        if (savedInstanceState != null) {
+            total = savedInstanceState.getString(TOTAL_KEY);
+        }
+
+        totalDisplay.setOnTotalChangedListener(this);
+
+        totalDisplay.setText(total);
+          return contentView;
+    }
+
+
+    private void initCalc(final View contentView){
         final GridLayout calculator = (GridLayout) contentView.findViewById(R.id.calcGridLayout);
 
         final int numChildren = calculator.getChildCount();
@@ -78,30 +103,15 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
         for (int i = 0; i < numChildren; i++) {
 
             final View child = calculator.getChildAt(i);
-            Button castChild = null;
 
-            if (child instanceof Button | child instanceof ImageButton) {
-                castChild = (Button) child;
-                castChild.setOnClickListener(this);
-            }
-
+            child.setOnClickListener(this);
         }
-        this.totalDisplay = (CurrencyEditText) contentView.findViewById(R.id.totalDisplay);
-        this.doneFab = (FloatingActionButton) contentView.findViewById(R.id.doneFab);
-        doneFab.setOnClickListener(this);
-
-        if (savedInstanceState != null) {
-            this.total = savedInstanceState.getString(TOTAL_KEY);
-        }
-
-        totalDisplay.setText(total);
-          return contentView;
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(TOTAL_KEY, total);
+        outState.putString(TOTAL_KEY, totalDisplay.getText().toString());
     }
 
     public void setResultClient(Result<String> result) {
@@ -125,7 +135,7 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
             totalDisplay.onDelete();
 
 
-        else if (id == R.id.doneFab & resultClient != null)
+        else if (id == R.id.doneFab /** & resultClient != null**/)
             resultClient.<String>sendResult(totalDisplay.getText().toString());
 
         else if (castView != null & id == -1)
@@ -133,7 +143,48 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
     }
 
+    public void hideView(final View view) {
 
+        if(hideAnim == null)
+            hideAnim = AnimationUtils.loadAnimation(getContext(), R.anim.hide_animation);
+
+        hideAnim.setFillAfter(false);
+
+        view.startAnimation(hideAnim);
+
+        toggleIsShowing(false);
+
+        view.setVisibility(View.GONE);
+    }
+
+
+    public void showView(final View view){
+
+        if(showAnim == null)
+            showAnim = AnimationUtils.loadAnimation(getContext(), R.anim.show_animation);
+
+        showAnim.setFillAfter(false);
+
+        view.startAnimation(showAnim);
+
+        toggleIsShowing(true);
+
+        view.setVisibility(View.VISIBLE);
+    }
+
+    private void toggleIsShowing(boolean b){
+        isShowing = b;
+    }
+
+    private void registerContentReveal(){
+        //TODO add material circular reveal animation
+    }
+
+
+
+    public interface Result<String> {
+        void sendResult(String result);
+    }
 
 
 

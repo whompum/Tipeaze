@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
 
     android:layout_width="wrap_content"
@@ -9,192 +8,182 @@
 
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
 
         <FrameLayout
             android:id="@+id/blah"
-            android:background="?attr/colorBackground"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-
-
-            <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
-                app:font="REGULAR"
-                android:layout_margin="16dp"
-                android:textSize="18sp"
-                android:textColor="#fffd6378"
-                android:text="@string/dialogTotalText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:background="?attr/colorBackground">
 
 
             <com.example.bryan.tipeaze.CustomViews.CurrencyEditText
-                android:maxLines="1"
+                android:backgroundTint="?attr/addTotalPrimaryColor"
+                android:clickable="false"
+                android:textCursorDrawable="@null"
                 android:id="@id/totalDisplay"
-                android:clickable="true"
-                android:layout_gravity="center"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="60dp"
-                android:textSize="48sp"
-                android:textColor="?attr/colorTertiary"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="55dp"
+                android:layout_marginTop="55dp"
+                android:maxLines="1"
+                android:textColor="?attr/addTotalPrimaryColor"
+                android:textSize="48sp" />
+
+            <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+                android:id="@+id/robotoBasedTextview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:text="@string/dialogTotalText"
+                android:textColor="?attr/addTotalSecondaryColor"
+                android:textSize="18sp"
+                app:font="REGULAR" />
 
         </FrameLayout>
 
         <FrameLayout
-            android:padding="24dp"
-            android:background="?attr/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:padding="32dp">
 
 
             <GridLayout
                 android:id="@id/calcGridLayout"
-                android:numColumns="3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:numColumns="3">
 
                 <Button
+                    style="@style/AddTotalCalcButtonStyle"
+
+                    android:layout_height="63dp"
                     android:layout_column="0"
                     android:layout_row="0"
-                    android:minWidth="86dp"
-                    android:padding="0dp"
-                    android:textSize="28sp"
-                    android:text="1"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
-                <Button
-                    android:layout_gravity="center"
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="2"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
-                <Button
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="3"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
+                    android:text="@string/one" />
 
+                <Button
+                    style="@style/AddTotalCalcButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
+                    android:layout_column="1"
+                    android:layout_row="0"
+                    android:text="@string/two" />
+
+                <Button
+                    style="@style/AddTotalCalcButtonStyle"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
+                    android:layout_column="2"
+                    android:layout_row="0"
+                    android:text="@string/three" />
                 <!-- 4 / 5 / 6 -->
                 <Button
+                    style="@style/AddTotalCalcButtonStyle"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
                     android:layout_column="0"
                     android:layout_row="1"
-                    android:minWidth="86dp"
-                    android:padding="0dp"
-                    android:textSize="28sp"
-                    android:text="4"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
-                <Button
-                    android:layout_gravity="center"
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="5"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
-                <Button
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="6"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
+                    android:text="@string/four" />
 
+                <Button
+                    style="@style/AddTotalCalcButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
+                    android:layout_column="1"
+                    android:layout_row="1"
+                    android:text="@string/five" />
+
+                <Button
+                    style="@style/AddTotalCalcButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
+                    android:layout_column="2"
+                    android:layout_row="1"
+                    android:text="@string/six" />
                 <!-- 7 / 8 / 9 -->
-
                 <Button
+                    style="@style/AddTotalCalcButtonStyle"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
                     android:layout_column="0"
                     android:layout_row="2"
-                    android:minWidth="86dp"
-                    android:padding="0dp"
-                    android:textSize="28sp"
-                    android:text="7"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
+                    android:text="@string/seven" />
+
                 <Button
-                    android:layout_gravity="center"
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="8"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    style="@style/AddTotalCalcButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
+                    android:layout_height="63dp"
+                    android:layout_column="1"
+                    android:layout_row="2"
+                    android:text="@string/eight" />
+
                 <Button
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="9"
-                    android:textColor="?attr/colorBackground"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    style="@style/AddTotalCalcButtonStyle"
+
                     android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
-                <Button
+                    android:layout_height="63dp"
+                    android:layout_column="2"
+                    android:layout_row="2"
+                    android:text="@string/nine" />
+
+                <ImageButton
+                    android:src="@drawable/backspace"
                     android:id="@id/backspaceCalc"
-                    android:minWidth="86dp"
-                    android:layout_width="86dp"
-                    android:layout_height="64dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="63dp"
                     android:layout_column="0"
                     android:layout_row="3"
-                    android:background="?attr/selectableItemBackgroundBorderless" />
-                <Button
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="0"
-                    android:textColor="?attr/colorBackground"
                     android:background="?attr/selectableItemBackgroundBorderless"
-                    android:layout_gravity="center_horizontal"
+                    android:minWidth="86dp" />
+
+                <Button
+                    style="@style/AddTotalCalcButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
+                    android:layout_height="63dp"
+                    android:layout_column="1"
+                    android:layout_row="3"
+                    android:text="@string/zero" />
+
                 <Button
                     android:id="@id/deleteCalc"
-                    android:minWidth="86dp"
-                    android:textSize="28sp"
-                    android:text="DEL"
-                    android:textColor="#fffd6378"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    style="@style/AddTotalCalcButtonStyle"
                     android:layout_width="wrap_content"
-                    android:layout_height="64dp" />
+                    android:layout_height="63dp"
+                    android:layout_column="2"
+                    android:layout_row="3"
+                    android:text="@string/delete"
+                    android:textColor="?attr/addTotalSecondaryColor" />
             </GridLayout>
-
-
 
         </FrameLayout>
 
-
     </LinearLayout>
 
-
     <android.support.design.widget.FloatingActionButton
-        android:id="@id/doneFab"
-        app:fabSize="mini"
-        app:backgroundTint="#fffd6378"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        app:fabSize="normal"
+        app:backgroundTint="?attr/addTotalSecondaryColor"
         app:layout_anchor="@id/blah"
         app:layout_anchorGravity="bottom|end"
+
+        app:srcCompat="@drawable/paper_airplane"
+        android:id="@id/doneFab"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>

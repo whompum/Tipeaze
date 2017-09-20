@@ -38,5 +38,15 @@
         <item name="colorControlNormal">#ff0077</item>
     </style>
 
+
+    <style name="AddTotalCalcButtonStyle">
+        <item name="android:minWidth">82dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textSize">28dp</item>
+        <item name="android:textColor">?attr/colorBackground</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+
     
 </resources>
