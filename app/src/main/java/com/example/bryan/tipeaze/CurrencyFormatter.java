@@ -1,5 +1,8 @@
 package com.example.bryan.tipeaze;
 
+import android.text.TextUtils;
+import android.util.Log;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
@@ -52,21 +55,30 @@ public class CurrencyFormatter {
     }
 
 
-    public String cleanText(String text){
-        return text.replaceAll("[^\\d]", "");
+    private String cleanText(String text){
+
+        final String newText = text.replaceAll("[^\\d]", "");
+
+        return newText;
     }
 
-    public double cookText(CharSequence text){
-        return cookText((String)text);
+    public double penniesToCash(String dirtyPennies){
+
+        final long cleanPennies = Long.valueOf(cleanText(dirtyPennies));
+        final double cash = (cleanPennies / getFractionDivisor());
+
+    return cash;
     }
 
-    public double cookText(String text){
-        //parses text into a double, then shifts the values right by *defaultFractionDigits*
-        return (Double.parseDouble(text)) / Math.pow(10, defaultFractionDigits);
+    public String cashToPennies(String pennies){
+        Log.i("test", "Pennies: " + pennies);
+        return cleanText(pennies);
     }
 
 
-
+    private double getFractionDivisor(){
+        return Math.pow(10, defaultFractionDigits);
+    }
 
 
 
