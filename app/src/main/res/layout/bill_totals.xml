@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/addCalcFabMargin">
+
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/productTotalTextStyle"
+
+        android:visibility="visible"
+        android:id="@id/totalPerPersonTextView"
+
+        android:text="@string/total"
+        android:textColor="?attr/colorPrimary" />
+
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/productTotalTextStyle"
+
+        android:id="@id/productTotalSecondary"
+        android:layout_below="@id/totalPerPersonTextView"
+        android:textColor="?attr/colorTertiary"/>
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        app:font="BOLD"
+        android:layout_centerInParent="true"
+        android:id="@id/grandTotal"
+        android:textSize="@dimen/textXXLarge"
+        android:textColor="?attr/colorPrimary"
+        android:text="@string/dummyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:background="?attr/colorPrimary"
+        android:layout_below="@id/grandTotal"
+        android:layout_alignLeft="@id/grandTotal"
+        android:layout_alignRight="@id/grandTotal"
+        android:layout_alignStart="@id/grandTotal"
+        android:layout_alignEnd="@id/grandTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"/>
+
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/productTotalTextStyle"
+
+        android:id="@id/productTotal"
+        android:layout_above="@+id/grandTotal"
+        android:layout_alignLeft="@+id/grandTotal"
+        android:layout_alignStart="@+id/grandTotal" />
+
+
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/accessoryTextStyle"
+
+        android:id="@id/tipDisplay"
+        android:text="@string/dummyText"
+        android:layout_alignParentBottom="true" />
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/accessoryTextStyle"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/tipDisplay"
+        android:layout_toEndOf="@id/tipDisplay"
+        android:id="@id/taxDisplay"
+
+        android:text="@string/dummyText"
+        android:layout_alignParentBottom="true" />
+
+
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/accessoryTextStyleSmall"
+
+        android:text="@string/tip"
+        android:layout_above="@id/tipDisplay"
+        android:layout_alignStart="@id/tipDisplay"
+        android:layout_alignLeft="@id/tipDisplay" />
+
+    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+        style="@style/accessoryTextStyleSmall"
+
+
+        android:text="@string/tip"
+        android:layout_above="@id/taxDisplay"
+        android:layout_alignStart="@id/taxDisplay"
+        android:layout_alignLeft="@id/taxDisplay" />
+
+    <!--Should set party People padding in Dimens/xml and let it
+        vary via screen DP?-->
+    <LinearLayout
+        android:id="@id/splitDisplayLayout"
+        android:layout_marginTop="32dp"
+        android:gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ImageView
+            style="@style/splitItemStyle" />
+        <ImageView
+            style="@style/splitItemStyle" />
+        <ImageView
+            style="@style/splitItemStyle" />
+        <ImageView
+            style="@style/splitItemStyle" />
+        <ImageView
+            style="@style/splitItemStyle" />
+        <ImageView
+            style="@style/splitItemStyle" />
+        <ImageView
+            style="@style/splitItemStyle"/>
+        <ImageView
+            android:visibility="visible"
+            style="@style/splitItemStyle" />
+
+
+        <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+            style="@style/accessoryTextStyle"
+
+            android:id="@id/splitDisplay"
+            android:text="1"
+            android:layout_gravity="center_horizontal" />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+</RelativeLayout>
