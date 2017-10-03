@@ -1,7 +1,9 @@
 package com.example.bryan.tipeaze;
 
 import android.app.Dialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -37,6 +39,7 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
     private Result resultClient;
 
+    private Vibrator vibrator;
 
     @Override //Recieves notifications when CurrencyEditText's value changes
     public void onTotalChanged(String total) {
@@ -135,12 +138,21 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
             totalDisplay.onDelete();
 
 
-        else if (id == R.id.doneFab /** & resultClient != null**/)
+        else if (id == R.id.doneFab & resultClient != null) {
             resultClient.<String>sendResult(totalDisplay.getText().toString());
+            return;
+
+        }
 
         else if (castView != null & id == -1)
              totalDisplay.append(castView.getText());
 
+
+        if(vibrator==null)
+            vibrator = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
+
+        if(vibrator!=null)
+            vibrator.vibrate(75);
     }
 
     public void hideView(final View view) {
@@ -180,7 +192,9 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
         //TODO add material circular reveal animation
     }
 
-
+    public void registerResultListener(Result<String> resultClient){
+        this.resultClient = resultClient;
+    }
 
     public interface Result<String> {
         void sendResult(String result);
