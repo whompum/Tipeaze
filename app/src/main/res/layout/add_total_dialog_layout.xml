@@ -12,14 +12,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-
         <FrameLayout
             android:id="@+id/blah"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorBackground">
+            android:background="?attr/addCalcTertiaryColor">
 
-
+            <!--Find a way to fix the backgroundTint API problem-->
             <com.example.bryan.tipeaze.CustomViews.CurrencyEditText
                 android:backgroundTint="?attr/addTotalPrimaryColor"
                 android:clickable="false"
@@ -31,8 +30,8 @@
                 android:layout_marginBottom="55dp"
                 android:layout_marginTop="55dp"
                 android:maxLines="1"
-                android:textColor="?attr/addTotalPrimaryColor"
-                android:textSize="48sp" />
+                android:textColor="?attr/addTotalSecondaryColor"
+                android:textSize="@dimen/textXXLarge" />
 
             <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
                 android:id="@+id/robotoBasedTextview"
@@ -41,7 +40,7 @@
                 android:layout_margin="16dp"
                 android:text="@string/dialogTotalText"
                 android:textColor="?attr/addTotalSecondaryColor"
-                android:textSize="18sp"
+                android:textSize="@dimen/textLarge"
                 app:font="REGULAR" />
 
         </FrameLayout>
@@ -49,7 +48,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
+            android:background="?attr/addTotalPrimaryColor"
             android:padding="32dp">
 
 
@@ -57,133 +56,86 @@
                 android:id="@id/calcGridLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="start"
-                android:numColumns="3">
+                android:columnCount="3"
+                android:rowCount="4">
 
+                <!-- 1 / 2 / 3-->
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-
-                    android:layout_height="63dp"
-                    android:layout_column="0"
-                    android:layout_row="0"
                     android:text="@string/one" />
-
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="1"
-                    android:layout_row="0"
                     android:text="@string/two" />
-
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="2"
-                    android:layout_row="0"
                     android:text="@string/three" />
+
+
                 <!-- 4 / 5 / 6 -->
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
 
-                    android:layout_width="wrap_content"
                     android:layout_height="63dp"
                     android:layout_column="0"
                     android:layout_row="1"
                     android:text="@string/four" />
-
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="1"
-                    android:layout_row="1"
                     android:text="@string/five" />
-
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="2"
-                    android:layout_row="1"
                     android:text="@string/six" />
+
+
                 <!-- 7 / 8 / 9 -->
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
 
-                    android:layout_width="wrap_content"
                     android:layout_height="63dp"
                     android:layout_column="0"
                     android:layout_row="2"
                     android:text="@string/seven" />
-
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="1"
-                    android:layout_row="2"
                     android:text="@string/eight" />
-
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="2"
-                    android:layout_row="2"
                     android:text="@string/nine" />
 
+
+
+                <!--Backsapce / 0 / DEL-->
                 <ImageButton
+                    style="@style/AddTotalCalcButtonStyle"
                     android:src="@drawable/backspace"
                     android:id="@id/backspaceCalc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
                     android:layout_column="0"
-                    android:layout_row="3"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:minWidth="86dp" />
-
+                    android:layout_row="3" />
                 <Button
                     style="@style/AddTotalCalcButtonStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="63dp"
-                    android:layout_column="1"
-                    android:layout_row="3"
                     android:text="@string/zero" />
-
                 <Button
-                    android:id="@id/deleteCalc"
                     style="@style/AddTotalCalcButtonStyle"
-                    android:layout_width="wrap_content"
+                    android:id="@id/deleteCalc"
                     android:layout_height="63dp"
-                    android:layout_column="2"
-                    android:layout_row="3"
                     android:text="@string/delete"
-                    android:textColor="?attr/addTotalSecondaryColor" />
+                    android:textColor="?attr/colorTertiary" />
             </GridLayout>
 
         </FrameLayout>
 
     </LinearLayout>
-
     <android.support.design.widget.FloatingActionButton
         app:fabSize="normal"
         app:backgroundTint="?attr/addTotalSecondaryColor"
         app:layout_anchor="@id/blah"
         app:layout_anchorGravity="bottom|end"
-
         app:srcCompat="@drawable/paper_airplane"
+
         android:id="@id/doneFab"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginEnd="@dimen/addCalcFabMargin"
+        android:layout_marginRight="@dimen/addCalcFabMargin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
-
-
-
-
 
 </android.support.design.widget.CoordinatorLayout>
