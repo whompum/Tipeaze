@@ -8,7 +8,11 @@
 
     <string name="dialogTotalText">Total</string>
 
-
+    <string name="tip">Tip</string>
+    <string name="tax">Tax</string>
+    <string name="product">Product</string>
+    <string name="you_pay">You Pay</string>
+    <string name="each_pay">Each Pay</string>
 
     <!--Text for the addTotalDialog buttons -->
     <string name="one">1</string>
@@ -24,4 +28,14 @@
 
     <string name="delete">DEL</string>
 
+
+    <string name="accessibility_personal_icon">Icon for bill prices for the person.</string>
+    <string name="accessibility_party_icon">Icon for bill prices for the party.</string>
+
+    <string name="total">Total</string>
+    <string name="per_person">Per Person</string>
+
+
+
+    <string name="dummyText">$0.00</string>
 </resources>

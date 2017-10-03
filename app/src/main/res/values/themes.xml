@@ -1,41 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme. -->
-    <style name="DefaultTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
-        <item name="colorPrimary">@color/lightNavyBlue</item>
-        <item name="colorSecondary">@color/darkNavyBlue</item>
+
+    <!--
+        colorControlNormal changes the color of things like Spinner's arrow
+        colorControlActivited changes the color of things when touched. Like spinners arrow.
+
+    -->
+
+    <style name="Crimson" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/mainBlue</item>
+        <item name="colorSecondary">@color/greyBlue</item>
+        <item name="colorTertiary">@color/softPink</item>
+        <item name="colorBackground">@color/dark</item>
         <item name="colorMain">@color/milkyWhite</item>
-        <item name="colorTertiary">@color/gold</item>
-        <item name="colorBackground">@color/milkyWhite</item>
-
-        <item name="tipViewCardHighlight">?attr/colorPrimary</item>
-        <item name="addFabBackground">?attr/colorMain</item>
-        <item name="personalTabsCurrentTextHighlight">?attr/colorTertiary</item>
-        <item name="personalTabsSecondaryTextHighlight">?attr/colorMain</item>
-        <item name="addFabiconHighlight">?attr/colorPrimary</item>
-        <item name="presetDropdownHighlight">?attr/colorMain</item>
-
-        <item name="billContentHighlight">?attr/colorPrimary</item>
-        <item name="billTotalHighlight">?attr/colorTertiary</item>
-
-        <item name="colorControlHighlight">?attr/colorSecondary</item>
-        <item name="colorControlActivated">?attr/colorTertiary</item>
-        <item name="colorControlNormal">?attr/colorBackground</item>
-
-        <item name="addTotalPrimaryColor">?attr/colorTertiary</item>
-        <item name="addTotalSecondaryColor">#ff6d6d</item>
-
-    </style>
-
-    <!--Color main will probably always be white, so i'll only set that in DefaultTheme -->
-
-    <style name="Crimson" parent="DefaultTheme">
-        <item name="colorPrimary">@color/normalCrimson</item>
-        <item name="colorSecondary">@color/softPink</item>
-        <item name="colorTertiary">@color/lighterDark</item>
-        <item name="colorBackground">@color/lighterDark</item>
-
 
         <item name="tipViewCardHighlight">?attr/colorPrimary</item>
         <item name="addFabBackground">?attr/colorMain</item>
@@ -48,8 +26,12 @@
         <item name="billTotalHighlight">?attr/colorPrimary</item>
 
         <item name="colorControlHighlight">?attr/colorSecondary</item>
-        <item name="colorControlNormal">?attr/colorTertiary</item>
+        <item name="colorControlNormal">?attr/colorMain</item>
         <item name="colorControlActivated">?attr/colorBackground</item>
+
+        <item name="addTotalPrimaryColor">@color/dark</item>
+        <item name="addTotalSecondaryColor">@color/mainBlue</item>
+        <item name="addCalcTertiaryColor">@color/milkyWhite</item>
 
     </style>
 

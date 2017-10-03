@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- BELOW ARE FOR THE MAIN CARD ids -->
-    <item name="topPortionLayout" type="id"/>
 
     <item name="tipViewCard" type="id"/>
     <item name="tipView" type="id"/>
 
-    <item name="addFabPosView" type="id"/>
+    <item name="tipCardTipDisplay" type="id"/>
+    <item name="tipCardTaxDisplay" type="id"/>
+
     <item name="addFab" type="id"/>
+    <item name="splitFab" type="id"/>
 
     <item name="toolbar" type="id"/>
 
     <item name="extras" type="id"/>
-    <item name="savePreset" type="id"/>
-    <item name="changeCurrency" type="id"/>
-    <item name="changeTheme" type="id" />
 
     <item name="presetSelector" type="id"/>
 
@@ -22,14 +21,24 @@
     <item name="personalTextView" type="id"/>
     <item name="partyTextView" type="id"/>
 
-
     <item name="personalPartyViewPagerId" type="id"/>
-
 
     <item name="backspaceCalc" type="id"/>
     <item name="deleteCalc" type="id"/>
     <item name="calcGridLayout" type="id"/>
     <item name="totalDisplay" type="id"/>
     <item name="doneFab" type="id"/>
+
+
+
+    <!--ID's FOR THE PERSONAL/PARTY BILL FRAGMENTS -->
+    <item name="totalPerPersonTextView" type="id"/>
+    <item name="tipDisplay" type="id"/>
+    <item name="taxDisplay" type="id"/>
+    <item name="productTotal" type="id"/>
+    <item name="productTotalSecondary" type="id"/>
+    <item name="grandTotal" type="id"/>
+    <item name="splitDisplayLayout" type="id"/>
+    <item name="splitDisplay" type="id"/>
 
 </resources>

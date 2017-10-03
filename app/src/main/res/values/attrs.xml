@@ -20,6 +20,7 @@
     <!--secondary is for fab / delete button etc. Primary is for the total text -->
     <attr name="addTotalSecondaryColor" format="color|reference"/>
     <attr name="addTotalPrimaryColor" format="color|reference"/>
+    <attr name="addCalcTertiaryColor" format="color|reference"/>
 
     <declare-styleable name="TipView">
         <attr name="thumbHighlight" format="color|reference"/>

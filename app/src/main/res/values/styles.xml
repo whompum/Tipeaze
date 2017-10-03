@@ -6,7 +6,7 @@
         <item name="thumbTouchHighlight">?attr/colorTertiary</item>
         <item name="thumbTouchTextHighlight">?attr/colorMain</item>
         <item name="thumbSize">38dp</item>
-        <item name="thumbTextSize">14dp</item>
+        <item name="thumbTextSize">@dimen/textSmall</item>
         <item name="thumbTextHighlight">?attr/colorPrimary</item>
         <item name="thumbTextPadding">5dp</item>
 
@@ -21,16 +21,14 @@
         <item name="tickmarkWidth">4dp</item>
     </style>
 
-    <!-- Change 24sp/16sp into a dimen resource
-         NOTE: Keep these guys at dp's instead of sp's for positioning purposes-->
     <style name="personalTabsCurrentTextStyle">
-        <item name="android:textSize">16sp</item>
+        <item name="android:textSize">@dimen/textSmall</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:textColor">?attr/personalTabsCurrentTextHighlight</item>
+        <item name="android:textColor">?attr/colorTertiary</item>
     </style>
 
     <style name="personalTabsSecondaryTextStyle">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">@dimen/textMicro</item>
         <item name="android:textColor">?attr/personalTabsSecondaryTextHighlight</item>
     </style>
 
@@ -40,13 +38,51 @@
 
 
     <style name="AddTotalCalcButtonStyle">
-        <item name="android:minWidth">82dp</item>
+        <item name="android:minWidth">@dimen/addCalcWidth</item>
+        <item name="android:layout_width">@dimen/addCalcWidth</item>
+        <item name="android:layout_height">@dimen/addCalcHeight</item>
         <item name="android:padding">0dp</item>
-        <item name="android:textSize">28dp</item>
-        <item name="android:textColor">?attr/colorBackground</item>
+        <item name="android:textSize">@dimen/textXLarge</item>
+        <item name="android:textColor">?attr/addCalcTertiaryColor</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
 
-    
+
+
+    <style name="productTotalTextStyle">
+        <item name="font">BOLD</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:textSize">@dimen/textLarge</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/dummyText</item>
+        <item name="android:textColor">?attr/colorMain</item>
+    </style>
+
+    <style name="splitItemStyle">
+        <item name="android:visibility">invisible</item>
+        <item name="android:src">@drawable/personal_people</item>
+        <item name="android:padding">2.5dp</item>
+        <item name="android:layout_width">18dp</item>
+        <item name="android:layout_height">18dp</item>
+    </style>
+
+    <style name="accessoryTextStyle">
+        <item name="font">BOLD</item>
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:textColor">?attr/colorTertiary</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="accessoryTextStyleSmall">
+        <item name="font">LIGHT</item>
+        <item name="android:textSize">@dimen/textSmall</item>
+        <item name="android:textColor">?attr/colorMain</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+
 </resources>
