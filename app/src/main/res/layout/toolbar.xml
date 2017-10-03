@@ -11,11 +11,11 @@
     toolbar according to MD standards -->
 
     <RelativeLayout
-        android:layout_marginLeft="@dimen/horMargin"
-        android:layout_marginStart="@dimen/horMargin"
-        android:layout_marginEnd="@dimen/horMargin"
-        android:layout_marginRight="@dimen/horMargin"
-        android:layout_marginTop="8dp"
+        android:layout_marginLeft="@dimen/cardMarginsHor"
+        android:layout_marginStart="@dimen/cardMarginsHor"
+        android:layout_marginRight="@dimen/cardMarginsHor"
+        android:layout_marginEnd="@dimen/cardMarginsHor"
+        android:layout_marginTop="@dimen/cardMarginsHor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -42,10 +42,6 @@
             app:srcCompat="@drawable/settings_icon"
 
             android:scaleType="centerInside"
-
-            android:layout_marginEnd="@dimen/horMargin"
-            android:layout_marginRight="@dimen/horMargin"
-
 
             android:id="@id/extras"
 

@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
 <LinearLayout
+    android:background="@color/greyBlue"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -14,15 +16,9 @@
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:id="@id/tipViewCard"
 
-    android:layout_alignParentTop="true"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-
     app:cardBackgroundColor="?attr/tipViewCardHighlight"
-    app:cardElevation="@dimen/tipViewCardElevation"
     app:cardCornerRadius="0dp">
 
     <RelativeLayout
@@ -31,29 +27,51 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/toolbar"
+          <include layout="@layout/toolbar"
             android:id="@id/toolbar"/>
 
         <com.example.bryan.tipeaze.CustomViews.TipView
             android:id="@id/tipView"
-
             android:layout_centerHorizontal="true"
-
             android:layout_below="@id/toolbar"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+            style="@style/accessoryTextStyle"
+
+            android:id="@id/tipCardTaxDisplay"
+            android:layout_centerVertical="true"
+            android:textColor="?attr/colorMain"
+            android:text="15%"
+            android:layout_marginLeft="@dimen/cardMarginsHor"
+            android:layout_marginStart="@dimen/cardMarginsHor" />
+
+        <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
+            style="@style/accessoryTextStyle"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+
+            android:textColor="?attr/colorMain"
+
+            android:id="@id/tipCardTipDisplay"
+
+            android:text="15%"
+            android:layout_marginEnd="@dimen/cardMarginsHor"
+            android:layout_marginRight="@dimen/cardMarginsHor" />
+
+
+
 
         <RelativeLayout
-            android:layout_marginStart="@dimen/horMargin"
-            android:layout_marginLeft="@dimen/horMargin"
-            android:layout_marginBottom="@dimen/horMargin"
-
+            android:layout_marginLeft="@dimen/cardMarginsHor"
+            android:layout_marginStart="@dimen/cardMarginsHor"
+            android:layout_marginRight="@dimen/cardMarginsHor"
+            android:layout_marginEnd="@dimen/cardMarginsHor"
+            android:layout_marginBottom="@dimen/cardMarginsHor"
             android:layout_below="@id/tipView"
-
             android:id="@id/personalPartyTabs"
-
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -66,57 +84,68 @@
                 android:text="@string/personal_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
                 style="@style/personalTabsSecondaryTextStyle"
-                android:layout_marginTop="@dimen/personalPartyTabsPosMargin"
 
                 app:font="REGULAR"
 
+                android:layout_marginTop="@dimen/personalPartyTabsPosMargin"
                 android:id="@id/partyTextView"
                 android:text="@string/party_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </RelativeLayout>
-
-
-
     </RelativeLayout>
 
 
 </android.support.v7.widget.CardView>
+<!--28dp height dummy spacer view meant to offset content below the F.A.B-->
 
-<android.support.v4.view.ViewPager
-    android:id="@id/personalPartyViewPagerId"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+
+<include layout="@layout/bill_totals"
+    android:id="@id/personalPartyViewPagerId" />
 
 </LinearLayout>
 
+
+
+
 <android.support.design.widget.FloatingActionButton
-
-    app:layout_anchor="@id/tipViewCard"
-    app:layout_anchorGravity="bottom|end"
-
     android:clickable="true"
-
-    app:srcCompat="@drawable/plus"
-
-    android:layout_marginEnd="@dimen/horMargin"
-    android:layout_marginRight="@dimen/horMargin"
-    android:layout_marginBottom="@dimen/horMargin"
+    android:layout_marginEnd="@dimen/cardMarginsHor"
+    android:layout_marginRight="@dimen/cardMarginsHor"
+    android:layout_marginBottom="@dimen/cardMarginsHor"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
 
     android:id="@id/addFab"
 
+    app:layout_anchor="@id/tipViewCard"
+    app:layout_anchorGravity="bottom|end"
+    app:srcCompat="@drawable/plus"
     app:fabSize="normal"
     app:backgroundTint="?attr/addFabBackground"
-    app:elevation="@dimen/addFabElevation"
+    app:elevation="@dimen/addFabElevation" />
 
-    android:layout_alignBottom="@id/addFabPosView"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentEnd="true" />
+    <android.support.design.widget.FloatingActionButton
+        android:clickable="true"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@id/splitFab"
+        android:scaleType="center"
+        app:layout_anchor="@id/tipViewCard"
+        app:layout_anchorGravity="bottom|end"
+        app:srcCompat="@drawable/personal_people"
+        app:fabSize="mini"
+        app:backgroundTint="?attr/addFabBackground"
+        app:elevation="@dimen/addFabElevation" />
+
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>
