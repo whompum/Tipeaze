@@ -6,10 +6,10 @@ import android.support.v7.widget.AppCompatEditText;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
-import android.util.Log;
 
 
-import com.example.bryan.tipeaze.CurrencyFormatter;
+import com.example.bryan.tipeaze.Abstractions.CurrencyEditTotalChanged;
+import com.example.bryan.tipeaze.BillingData.CurrencyFormatter;
 
 
 public class CurrencyEditText extends AppCompatEditText {
@@ -18,7 +18,7 @@ public class CurrencyEditText extends AppCompatEditText {
 
     private final CurrencyFormatter formatter = CurrencyFormatter.getInstance();
 
-    private OnTotalChanged onTotalChanged;
+    private CurrencyEditTotalChanged currencyEditTotalChanged;
 
     public CurrencyEditText(Context context) {
         super(context);
@@ -77,12 +77,8 @@ public class CurrencyEditText extends AppCompatEditText {
             if(isStringEmpty(unCharredText))
                 return;
 
-            Log.i("test", "UNCHARRED TEXT: " + unCharredText);
-
             //Converts pennies to a real cash value. E.G. 2876 becomes 28.76 / 2.876 depending on fractions the Locale uses.
             final double cashValue = formatter.penniesToCash(unCharredText);
-
-            Log.i("test", "DOUBLE: " + cashValue);
 
             final String formattedValue = formatter.format(cashValue);
 
@@ -90,8 +86,8 @@ public class CurrencyEditText extends AppCompatEditText {
 
             setCursor(formattedValue.length());
 
-            if(onTotalChanged!=null)
-                onTotalChanged.onTotalChanged(formatter.cashToPennies(formattedValue));
+            if(currencyEditTotalChanged !=null)
+                currencyEditTotalChanged.onTotalChanged(formatter.cashToPennies(formattedValue));
 
             addTextChangedListener(this);
         }
@@ -106,8 +102,8 @@ public class CurrencyEditText extends AppCompatEditText {
 
 
 
-    public void setOnTotalChangedListener(OnTotalChanged client){
-        this.onTotalChanged = client;
+    public void setOnTotalChangedListener(CurrencyEditTotalChanged client){
+        this.currencyEditTotalChanged = client;
     }
 
 

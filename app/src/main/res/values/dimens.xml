@@ -9,13 +9,26 @@
     <dimen name="tipViewCardElevation">5dp</dimen>
     <dimen name="addFabElevation">6dp</dimen>
 
-    <dimen name="horMargin">8dp</dimen>
-    <dimen name="spinnerMargin">2dp</dimen>
+    <dimen name="cardMarginsHor">12dp</dimen>
 
     <!--offsets a childrens top margin by 16sp to be placed directly under a textView (16sp). it's sp not dp
         to scale with the font size.-->
     <dimen name="personalPartyTabsPosMargin">16sp</dimen>
 
+    <dimen name="billTotalPadding">16dp</dimen>
+
+    <dimen name="textMicro">12sp</dimen>
+    <dimen name="textSmall">14sp</dimen>
+    <dimen name="textNormal">16sp</dimen>
+    <dimen name="textLarge">18sp</dimen>
+    <dimen name="textXLarge">26sp</dimen>
+    <dimen name="textXXLarge">38sp</dimen>
+
+
+    <dimen name="addCalcWidth">82dp</dimen>
+    <dimen name="addCalcHeight">63dp</dimen>
+
+    <dimen name="addCalcFabMargin">8dp</dimen>
 
 
 </resources>

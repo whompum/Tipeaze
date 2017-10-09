@@ -21,7 +21,7 @@
     <item name="personalTextView" type="id"/>
     <item name="partyTextView" type="id"/>
 
-    <item name="personalPartyViewPagerId" type="id"/>
+    <item name="container" type="id"/>
 
     <item name="backspaceCalc" type="id"/>
     <item name="deleteCalc" type="id"/>

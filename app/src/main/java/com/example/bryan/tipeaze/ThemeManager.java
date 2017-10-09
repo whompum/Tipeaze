@@ -5,14 +5,15 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
- * Created by bryan on 8/1/2017.
+ * This class is unused for now. Perhaps in the future if i want to re-support Theme-Variety
+ * I can add that functionality, but for now i just want the application built :/
  */
 
 public class ThemeManager {
 
     public static final String THEME_FOLDER = "user_themes.txt";
 
-    public static final int DEF_THEME = UserThemes.DEFAULT_THEME;
+    public static final int DEF_THEME = 0b001; /** UserThemes.DEFAULT_THEME;*/
 
     public static final String THEME_KEY = "KEY";
 
@@ -43,11 +44,12 @@ public class ThemeManager {
     }
 
 
-
-
+    /**
+     * Uncomment, and add themes to R.Themes.xml for customization
+     */
     public static class UserThemes{
-        public static final int DEFAULT_THEME = R.style.DefaultTheme;
-        public static final int CRIMSON = R.style.Crimson;
+        //public static final int DEFAULT_THEME = R.style.DefaultTheme;
+        //public static final int CRIMSON = R.style.Crimson;
     }
 
 

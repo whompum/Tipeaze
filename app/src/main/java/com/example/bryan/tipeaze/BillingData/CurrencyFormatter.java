@@ -1,11 +1,8 @@
-package com.example.bryan.tipeaze;
+package com.example.bryan.tipeaze.BillingData;
 
-import android.text.TextUtils;
 import android.util.Log;
 
 import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
 import java.util.Locale;
 
 //TODO register listeners to be notified whenever the locale changes or something similar happens
@@ -54,7 +51,6 @@ public class CurrencyFormatter {
         return formatter.getCurrency().getSymbol();
     }
 
-
     private String cleanText(String text){
 
         final String newText = text.replaceAll("[^\\d]", "");
@@ -70,17 +66,20 @@ public class CurrencyFormatter {
     return cash;
     }
 
+
+
     public String cashToPennies(String pennies){
-        Log.i("test", "Pennies: " + pennies);
         return cleanText(pennies);
     }
-
 
     private double getFractionDivisor(){
         return Math.pow(10, defaultFractionDigits);
     }
 
 
+    public double cashToPennies(long pennies){
+        return pennies / getFractionDivisor();
+    }
 
 
 

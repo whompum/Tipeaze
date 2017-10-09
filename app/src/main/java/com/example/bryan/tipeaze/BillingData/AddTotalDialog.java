@@ -1,4 +1,4 @@
-package com.example.bryan.tipeaze;
+package com.example.bryan.tipeaze.BillingData;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.DialogFragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +18,10 @@ import android.widget.Button;
 import android.widget.GridLayout;
 
 import com.example.bryan.tipeaze.CustomViews.CurrencyEditText;
-import com.example.bryan.tipeaze.CustomViews.OnTotalChanged;
+import com.example.bryan.tipeaze.Abstractions.CurrencyEditTotalChanged;
+import com.example.bryan.tipeaze.R;
 
-public class AddTotalDialog extends DialogFragment implements View.OnClickListener, OnTotalChanged {
+public class AddTotalDialog extends DialogFragment implements View.OnClickListener, CurrencyEditTotalChanged {
 
     public static final String TAG = "AddTotalDialog";
 
@@ -103,12 +103,8 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
         final int numChildren = calculator.getChildCount();
 
-        for (int i = 0; i < numChildren; i++) {
-
-            final View child = calculator.getChildAt(i);
-
-            child.setOnClickListener(this);
-        }
+        for (int i = 0; i < numChildren; i++)
+            calculator.getChildAt(i).setOnClickListener(this);
     }
 
     @Override
@@ -168,8 +164,6 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
 
         view.setVisibility(View.GONE);
     }
-
-
     public void showView(final View view){
 
         if(showAnim == null)
@@ -184,12 +178,13 @@ public class AddTotalDialog extends DialogFragment implements View.OnClickListen
         view.setVisibility(View.VISIBLE);
     }
 
+
     private void toggleIsShowing(boolean b){
         isShowing = b;
     }
 
     private void registerContentReveal(){
-        //TODO add material circular reveal animation
+        //TODO add material circular reveal animation?
     }
 
     public void registerResultListener(Result<String> resultClient){

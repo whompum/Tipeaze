@@ -36,6 +36,6 @@
     <string name="per_person">Per Person</string>
 
 
-
-    <string name="dummyText">$0.00</string>
+    <string name="dummyPercentage">0%</string>
+    <string name="dummPrice">$0.00</string>
 </resources>

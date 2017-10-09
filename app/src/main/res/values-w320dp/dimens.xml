@@ -2,7 +2,7 @@
 <resources>
     <dimen name="thumbSize">0dp</dimen>
     <dimen name="thumbTextSize">0dp</dimen>
-    <dimen name="totalTrackSize">170dp</dimen>
+    <dimen name="totalTrackSize">165dp</dimen>
     <dimen name="trackStrokeSize">0dp</dimen>
     <dimen name="trackTextSize">0dp</dimen>
     <dimen name="tickmarkWidth">0dp</dimen>

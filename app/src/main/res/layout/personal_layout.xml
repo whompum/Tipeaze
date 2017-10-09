@@ -6,7 +6,10 @@
     android:layout_height="match_parent"
     android:padding="@dimen/addCalcFabMargin">
 
-
+ <!--
+  May not need ID, but i'll keep it just in case
+  i'll need it for like a shared-element transition or something
+  -->
     <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
         style="@style/productTotalTextStyle"
 
@@ -18,19 +21,12 @@
 
 
     <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
-        style="@style/productTotalTextStyle"
-
-        android:id="@id/productTotalSecondary"
-        android:layout_below="@id/totalPerPersonTextView"
-        android:textColor="?attr/colorTertiary"/>
-
-    <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
         app:font="BOLD"
         android:layout_centerInParent="true"
         android:id="@id/grandTotal"
         android:textSize="@dimen/textXXLarge"
         android:textColor="?attr/colorPrimary"
-        android:text="@string/dummyText"
+        android:text="@string/dummPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -47,7 +43,8 @@
 
     <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
         style="@style/productTotalTextStyle"
-
+        android:visibility="visible"
+        android:textColor="@color/softPink"
         android:id="@id/productTotal"
         android:layout_above="@+id/grandTotal"
         android:layout_alignLeft="@+id/grandTotal"
@@ -59,7 +56,7 @@
         style="@style/accessoryTextStyle"
 
         android:id="@id/tipDisplay"
-        android:text="@string/dummyText"
+        android:text="@string/dummPrice"
         android:layout_alignParentBottom="true" />
 
     <com.example.bryan.tipeaze.CustomViews.RobotoBasedTextview
@@ -71,7 +68,7 @@
         android:layout_toEndOf="@id/tipDisplay"
         android:id="@id/taxDisplay"
 
-        android:text="@string/dummyText"
+        android:text="@string/dummPrice"
         android:layout_alignParentBottom="true" />
 
 
@@ -88,7 +85,7 @@
         style="@style/accessoryTextStyleSmall"
 
 
-        android:text="@string/tip"
+        android:text="@string/tax"
         android:layout_above="@id/taxDisplay"
         android:layout_alignStart="@id/taxDisplay"
         android:layout_alignLeft="@id/taxDisplay" />

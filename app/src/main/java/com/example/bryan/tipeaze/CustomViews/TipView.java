@@ -7,11 +7,13 @@ import android.graphics.Rect;
 import android.os.Vibrator;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 
 
+import com.example.bryan.tipeaze.Abstractions.TipViewChangeListener;
 import com.example.bryan.tipeaze.R;
 
 import java.util.HashSet;
@@ -71,7 +73,10 @@ public class TipView extends View {
 
     private int graceTouchRadius = 0;
 
-    Vibrator vibrator;
+    private Vibrator vibrator;
+
+
+    private TipViewChangeListener changeListener;
 
     public TipView(Context context, AttributeSet set){
         super(context, set);
@@ -444,6 +449,14 @@ public class TipView extends View {
                 break;
             case SPLIT:
                 currThumbValue = splitMax* getThumbValuePercentage(thumb);
+                /**
+                 *So i wanted the split to be between 1 and 8, not 0 and 8. To get that behavior
+                 * i simply scaled the thumbValue IF less than one. However this causes a new issue
+                 * where the users thumb can stay in the ones place twice as long as any other values.
+                 * IDKAIDCATM...
+                 */
+                if(currThumbValue < 1)
+                    currThumbValue += 1;
                 break;
         }
 
@@ -452,15 +465,21 @@ public class TipView extends View {
 
     private void setTrackText(int value){
 
-        String text = String.valueOf(value);
+
 
         switch(getThumbType(thumbToUpdate)){
             case TIP:
-            case TAX: text += "%";
+            case TAX: setTrackText(utilToPercent(String.valueOf(value)));
+                break;
+
+            case SPLIT: this.setTrackText(String.valueOf(value));
+                break;
         }
 
+    }
 
-        this.setTrackText(text);
+    public static String utilToPercent(String str){
+        return str + "%";
     }
 
     private void setTrackText(String string){
@@ -471,15 +490,23 @@ public class TipView extends View {
 
         switch (getThumbType(thumb)){
             case TIP: this.currTip = currValue;
+                changeListener.onTipChange(currTip);
                 break;
             case TAX: this.currTax = currValue;
+                changeListener.onTaxChange(currTax);
                 break;
             case SPLIT: this.currSplit = currValue;
+                changeListener.onSplitChange(currSplit);
                 break;
         }
 
     }
 
+
+
+    /**
+     * Fucking war-zone
+     * below**/
     private float getThumbValuePercentage(Thumb thumb){
         return (thumb.getValue()) / 100;
     }
@@ -516,6 +543,35 @@ public class TipView extends View {
         this.tipMax = tipMax;
         this.taxMax = taxMax;
         this.splitMax = splitMax;
+    }
+
+
+    public void reset(){
+        Log.w("warning", "Will cause bug if Presets are involved.  Why? Because default values may not be @ 0 -OR- 1. They" +
+                "may be at like 18 or something, in which case i should reset to there.");
+        currTip = currTax = 0;
+        currSplit = 1;
+
+        final Iterator<Thumb> thumbIterator = thumbs.iterator();
+
+        while(thumbIterator.hasNext()) {
+
+            final Thumb thumb = thumbIterator.next();
+            initThumbBounds(thumb);
+        }
+
+        setTrackText("");
+
+        invalidate();
+
+        changeListener.onSplitChange(currSplit);
+        changeListener.onTaxChange(currTax);
+        changeListener.onTipChange(currTip);
+
+    }
+
+    public void setChangeListener(TipViewChangeListener l){
+        this.changeListener = l;
     }
 
     public void setCurrTip(int currTip){
